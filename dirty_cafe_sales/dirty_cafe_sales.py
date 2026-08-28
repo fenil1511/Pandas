@@ -9,7 +9,7 @@ import numpy as np
 
 # Point to the subfolder where the CSV actually lives
 df = pd.read_csv('dirty_cafe_sales/Airbnb_Open_Data.csv')
-print('before',df.shape)
+
 # Remove duplicate values
 df = df.drop_duplicates(subset=['id']).reset_index(drop=True)
 
@@ -112,4 +112,4 @@ df['house_rules'] = df['house_rules'].fillna('unknown')
 # license
 df.drop(columns=['license'], inplace=True)
 
-print('after',df.shape)
+done = df.to_csv('clean_sales_data.csv',index=False)
